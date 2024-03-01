@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+/* .container { */
+/* background-image: url('https://i.pinimg.com/736x/3c/2d/d6/3c2dd6d26fb2cc8ee8a4232db7126e0c.jpg'); */
+/* background-size: cover; Cover the entire container */
+/* background-position: center; Center the background image */
+/* background-size: 900px; */
+/* object-fit: fill; */
+/* background-repeat: no-repeat; */
+/* position: relative; Set positioning context for absolute positioning of form */
+
+/* } */
+/* .imgg {
+    background-position: center;
+    background-size: 9px;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 100%;
+} */
+
+
+
+
+
+.container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #616f96;
+    column-gap: 30px;
+    
+}
+
+.form {
+    position: absolute;
+    max-width: 430px;
+    border-radius: 6px;
+    border: 1px solid white;
+    width: 100%;
+    /* background-color: #FFF; */
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 30px;
+}
+
+.form.signup {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.forms.show-signup .form.signup {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.forms.show-signup .form.login {
+    opacity: 0;
+    pointer-events: none;
+}
+
+header {
+    font-size: 28px;
+    font-weight: 600;
+    color: #0082e9;
+    text-align: center;
+}
+.white{
+    background: white;
+}
+
+form {
+    margin-top: 30px;
+
+}
+
+.form .field {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 6px;
+
+}
+
+.field input,
+.field button {
+    height: 90%;
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 6px;
+}
+
+.field input {
+    outline: none;
+    border: 1px solid #CACACA;
+    padding: 0 15px;
+}
+
+.field input:focus {
+    border-bottom-width: 2px;
+}
+
+.form-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.form-link span,
+.form-link a {
+    font-size: 14px;
+    font-weight: 400;
+    color: #232823;
+}
+
+.form a {
+    color: #0171d3;
+    text-decoration: none;
+}
+
+.form-content a:hover {
+    text-decoration: underline;
+}
+
+.eye-icon {
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #8b8b8b;
+    position: absolute;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.line {
+    height: 1px;
+    width: 100%;
+    position: relative;
+    margin: 36px 0;
+    background-color: #d4d4d4;
+}
+
+.line::before {
+    content: 'Or';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFF;
+    color: #8b8b8b;
+    padding: 0 15px;
+
+}
+
+.field button {
+    background-color: #0171d3;
+    color: #FFF;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.field button:hover {
+    background-color: #016dcb;
+
+}
+
+.media-options a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a.facebook {
+    color: #FFF;
+    background-color: #4267b2;
+}
+
+a.facebook .facebook-icon {
+    height: 28px;
+    width: 28px;
+    color: #0171d3;
+    background-color: #FFF;
+    font-size: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.facebook-icon,
+img.google-img {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+}
+
+img.google-img {
+    height: 20px;
+    width: 20px;
+    object-fit: cover;
+    border: 1px solid #d9aeae96;
+    border-radius: 10px;
+
+}
+
+a.google {
+    border: 1px solid #CACACA;
+}
+
+a.google span {
+    font-weight: 500;
+    opacity: 0.6;
+    /* color: #232836; */
+    color: black;
+}
+
+@media screen and (max-width:415px) {
+    .form {
+        padding: 15px 10px;
+        /* max-width: 350px; */
+    }
+}
+    </style>
+</head>
+
+
+<body>
+    <section class="container forms">
+        <!-- <img class="imgg"  src="https://i.pinimg.com/736x/3c/2d/d6/3c2dd6d26fb2cc8ee8a4232db7126e0c.jpg" alt=""> -->
+        <div class="form login">
+            <div class="form-content">
+                <header>Login <strong style="color: black;">Page</strong></header>
+                <form action="#">
+
+                    <div class="field input-field">
+                        <input type="email" placeholder="Email" class="input">
+                    </div>
+
+                    <div class="field input-field">
+                        <input type="password" placeholder="Password" class="password">
+                        <i class='bx bx-hide eye-icon'></i>
+
+                    </div>
+
+                    <div class="form-link">
+                        <a href="#" class="forget-pass">Forgot Password ?</a>
+                    </div>
+
+                    <div class="field button-field">
+                        <button>Login</button>
+                    </div>
+
+                </form>
+                <div class="form-link">
+                    <span>Already have an account? <a href="#" class="link signup-link">Signup</a></span>
+                </div>
+
+            </div>
+
+            <div class="line"></div>
+            <div class="media-options">
+                <a href="#" class="field facebook">
+                    <i class='bx bxl-facebook facebook-icon'></i>
+                    <span>Login with Facebook</span>
+                </a>
+            </div>
+            <div class="media-options">
+                <a href="#" class="field google white">
+                    <img src="google2.png" alt="gooleimg" class="google-img">
+                    <span>Login with google</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Signup Form -->
+
+        <div class="form signup">
+            <div class="form-content">
+                <header>Signup</header>
+                <form action="#">
+
+                    <div class="field input-field">
+                        <input type="email" placeholder="Email" class="input">
+                    </div>
+
+                    <div class="field input-field">
+                        <input type="password" placeholder="Password" class="password">
+                        <i class='bx bx-hide eye-icon'></i>
+                    </div>
+
+                    <div class="field input-field">
+                        <input type="password" placeholder="Re-enter Password" class="password">
+                            <i class='bx bx-hide eye-icon'></i>
+                    </div>
+
+                    <div class="field button-field">
+                        <button>Signup</button>
+                    </div>
+                    
+                </form>
+                <div class="form-link">
+                    <span>Already have an account? <a href="#" class=" link login-link">Login</a></span>
+                </div>
+
+            </div>
+
+            <div class="line"></div>
+            <div class="media-options">
+                <a href="#" class="field facebook">
+                    <i class='bx bxl-facebook facebook-icon'></i>
+                    <span>Login with Facebook</span>
+                </a>
+            </div>
+            <div class="media-options">
+                <a href="#" class="field google" style="background:white;">
+                    <img src="google2.png" alt="gooleimg" class="google-img">
+                    <span>Login with google</span>
+                </a>
+            </div>
+        </div>
+
+
+
+    </section>
+  
+    <script>
+        console.log("Lets Write Java Script")
+const forms = document.querySelector(".forms"),
+pwShowHide=document.querySelectorAll(".eye-icon")
+links =document.querySelectorAll(".link");
+pwShowHide.forEach(eyeIcon=>{
+    eyeIcon.addEventListener("click",()=>{
+        let pwFields=eyeIcon.parentElement.parentElement.querySelectorAll(".password")
+        pwFields.forEach(password=>{
+            if(password.type === "password"){
+                password.type = "text";
+                eyeIcon.classList.replace("bx-hide","bx-show")
+                return;
+            }
+            password.type = "password";
+                eyeIcon.classList.replace("bx-show","bx-hide")
+        })
+    })
+})
+links.forEach(link=>{
+    link.addEventListener("click",e=>{
+        e.preventDefault();
+        forms.classList.toggle("show-signup")
+        
+    })
+})
+    </script>
+</body>
+
+</html>
